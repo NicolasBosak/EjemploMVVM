@@ -18,9 +18,10 @@ namespace NicolasCasamenMVVM.ViewModels
             set { _libro = value; 
             OnPropertyChanged(nameof(Libro));}
         }
+        public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            ProgressChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
